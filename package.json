@@ -1,0 +1,17 @@
+{
+  "name": "log-sample",
+  "version": "0.1.0",
+  "description": "Keeps first and last log lines, sampling those in between.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "dependencies": {}
+}
