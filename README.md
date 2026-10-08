@@ -40,3 +40,10 @@ The trade-off is that the middle is gone &mdash; you see only the count, not the
 ## Edge cases
 
 If the number of lines received is less than or equal to `head + tail`, nothing is omitted and no marker appears &mdash; the head and tail simply abut. If `head` is `0`, there is no leading context; if `tail` is `0`, there is no trailing context; if both are `0`, the sampler records only the omission count and (if `marker` is non-empty and `markerIf` is satisfied) emits just the marker. Lines are stored verbatim; `add` does not strip trailing newlines, so callers should trim before calling if they want clean output.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
